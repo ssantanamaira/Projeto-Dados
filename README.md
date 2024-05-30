@@ -18,6 +18,7 @@ Este projeto contém dois scripts que realizam análises em dados de ecommerce a
 
 ```bash
 pip install pandas seaborn matplotlib scikit-learn
+```
 
 ## Como executar
 
