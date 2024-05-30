@@ -23,7 +23,7 @@ plt.title('Distribuição de Gênero')
 plt.show()
 
 # Distribuição de idade
-sns.histplot(data=df, x='Customer_Age', bins=20)
+sns.countplot(data=df, x='Customer_Age')
 plt.title('Distribuição de Idade dos Clientes')
 plt.show()
 
