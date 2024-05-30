@@ -26,7 +26,7 @@ print("\nCompra mais barata:")
 print(linha_mais_barata)
 
 
-####################  COMPRA MAIS BARATA E MAIS CARA  #################
+####################  CATEGORIAS COM MAIS E MENOS VENDAS  #################
 
 
 # Contar o número de vendas em cada categoria de produtos

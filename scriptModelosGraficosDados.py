@@ -1,3 +1,4 @@
+# As bibliotecas a seguir são necessárias para analise dos dados e criação dos gráficos
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -7,16 +8,13 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.preprocessing import LabelEncoder
 
-# Carregar o arquivo CSV
+# Carregar o arquivo CSV na variavel df
 df = pd.read_csv('./Ecommerce_DBS.csv')
 
-# Limpar os nomes das colunas
+# Limpar os nomes das colunas presentes na variavel df, alterando ' ' por '_' e '�' por '' 
 df.columns = df.columns.str.strip().str.replace(' ', '_').str.replace('�', '')
 
-# Exibir as primeiras linhas do dataframe
-print(df.head())
-
-# Verificar se há valores nulos
+# Verificar se há valores nulos, nesse caso não há
 print(df.isnull().sum())
 
 # Distribuição de gênero
@@ -63,17 +61,19 @@ plt.xticks(rotation=45)
 plt.show()
 
 ####MODELO####
-# Codificar variáveis categóricas
+
+# Codificar variáveis categóricas, transformar essas categorias em números, porque os modelos de aprendizado de máquina trabalham melhor com números.
 labelencoder = LabelEncoder()
 df['Gender'] = labelencoder.fit_transform(df['Gender'])
 df['Source'] = labelencoder.fit_transform(df['Source'])
 df['Product_Category'] = labelencoder.fit_transform(df['Product_Category'])
 
-# Definir variáveis independentes e dependentes
+# Definir variáveis independentes e dependentes, características (X) da variável alvo (y)
 X = df[['Gender', 'Customer_Age', 'Source']]
 y = df['Product_Category']
 
-# Dividir os dados em treino e teste
+# Aqui comeca as estrategias para o aprendizado de maquina 
+# Dividir os dados, uma para treinar o modelo (70% dos dados) e outra para testar o modelo (30% dos dados).
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Construir o modelo de árvore de decisão
