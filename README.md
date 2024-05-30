@@ -22,5 +22,6 @@ pip install pandas seaborn matplotlib scikit-learn
 
 ## Como executar
 
+```bash
 python scriptModelosGraficosDados.py
 python scriptInformacoes.py
